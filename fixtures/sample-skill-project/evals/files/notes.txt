@@ -1,0 +1,4 @@
+Project Launch Notes
+- Define MVP scope
+- Build headless runtime
+- Add review workspace
