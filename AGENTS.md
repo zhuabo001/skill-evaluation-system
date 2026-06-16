@@ -1,13 +1,13 @@
 <claude-mem-context>
 # Memory Context
 
-# [skill-eval-github] recent context, 2026-06-16 10:36pm GMT+8
+# [skill-eval-github] recent context, 2026-06-16 10:43pm GMT+8
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 23 obs (3,314t read) | 192,592t work | 98% savings
+Stats: 24 obs (3,942t read) | 192,592t work | 98% savings
 
 ### Jun 10, 2026
 531 3:38p 🔵 Eval test grade loop document is 719 lines
@@ -26,9 +26,7 @@ Stats: 23 obs (3,314t read) | 192,592t work | 98% savings
 544 " 🔵 quick_validate.py enforces strict frontmatter validation rules
 545 " 🔵 package_skill.py validates before packaging and supports exclusion patterns
 546 " 🔵 utils.py parses SKILL.md frontmatter with YAML multiline support
-**547** 3:49p 🔵 **generate_review.py serves zero-dependency HTML review viewer with two modes**
-~37t 🔍 10,757
-
+547 3:49p 🔵 generate_review.py serves zero-dependency HTML review viewer with two modes
 548 " 🔵 viewer.html implements single-page eval review with benchmark tab
 549 " 🔵 eval_review.html provides interactive eval set editing UI
 **550** 4:10p ⚖️ **Desktop client architecture decisions**
@@ -46,6 +44,15 @@ While exploring the skill-eval-github repository, the primary session discovered
 **553** 4:45p ⚖️ **Skill Studio MVP blueprint created with Tauri-based architecture**
 A comprehensive MVP blueprint (skill-studio-mvp-blueprint.md) was created for Skill Studio, a local Tauri desktop application for engineering AI skills. The document spans 18 sections covering product positioning, architecture, data models, permission model, review UI, exporters, reference asset migration plan, MVP milestones, and V2 roadmap. The architecture defines four layers: Tauri Desktop Shell (cross-platform shell, file picker, permission dialogs), Core Engine (model-agnostic business logic for scheduling, grading, benchmarking), Agent Runtime (controlled execution environment with tool protocol and transcript recording), and Model Adapters (Anthropic/OpenAI unified interface). The MVP scope is carefully scoped to exclude auto-improvement, team features, remote runners, and cloud benchmarking — reserving those for V2 while ensuring the data models and interfaces accommodate future expansion.
 ~719t ⚖️ 17,511
+
+### Jun 16, 2026
+**577** 10:42p 🔵 **Skill Studio MVP comprehensive specification created**
+The primary session designed a comprehensive product specification for "Skill Studio" - a local desktop application for skill development, evaluation, and iteration. The specification establishes a Tauri-based desktop application architecture prioritizing a headless vertical slice approach: schemas/artifacts → NativeAgentRuntime → with_skill+baseline execution → grader+benchmark → Tauri UI → review UI polish → exporters.
+
+    Key architectural decisions include using Tauri instead of Electron to reduce resource overhead, implementing a NativeAgentRuntime rather than depending on agent frameworks like DeepAgents, and adopting a workspace + permission prompt security model instead of container-level isolation. The evaluation model requires dual execution (with_skill injecting skill instructions vs baseline without) to generate comparable artifacts for human review.
+
+    The project defines clear artifact contracts for skill projects (skill.yaml, instructions.md), evaluation sets (evals/evals.json), run results (transcripts, metrics, timing, grading), and benchmark aggregation. The development routine specifies 8 phases from engineering skeleton through exporters, with recommended starting point being schema definition, core project loading, and minimal runtime execution before UI development.
+~628t -
 
 
 Access 193k tokens of past work via get_observations([IDs]) or mem-search skill.
