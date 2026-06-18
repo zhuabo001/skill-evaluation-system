@@ -2,7 +2,7 @@ import type { RuntimeFileRef, RunConfiguration } from "@skill-studio/schemas";
 
 export const PACKAGE_NAME = "@skill-studio/runtime";
 
-export type { SkillProject, EvalSet, RunConfiguration } from "@skill-studio/schemas";
+export type { SkillProjectManifest, EvalSet, RunConfiguration } from "@skill-studio/schemas";
 
 export interface AgentRunRequest {
   prompt: string;
