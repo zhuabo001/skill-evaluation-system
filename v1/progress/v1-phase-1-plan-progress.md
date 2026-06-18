@@ -15,11 +15,11 @@
 | Task 1.2 Project loader | 编写 project loader 测试（含失败用例） | 完成 | Phase 1 Task 1.2 project loader / e79a251 |
 | Task 1.3 Eval set loader | 实现 loadEvalSet（skill_id 校验、path traversal 拒绝、duplicate id 检查） | 完成 | Phase 1 Task 1.3 eval set loader / 50403a7 |
 | Task 1.3 Eval set loader | 编写 eval set loader 测试 | 完成 | Phase 1 Task 1.3 eval set loader / 50403a7 |
-| Task 1.4 Path builder | 实现 iteration id/eval dir/run dir/artifact paths builder | 完成 | Phase 1 Task 1.4 path builder / TODO_HASH |
-| Task 1.4 Path builder | 编写 path builder 测试（含重复 run 不静默覆盖） | 完成 | Phase 1 Task 1.4 path builder / TODO_HASH |
-| Task 1.5 Artifact writer | 实现 writeIterationMetadata / writeEvalMetadata | 未开始 | - |
-| Task 1.5 Artifact writer | 实现 6 个 placeholder writer（transcript/metrics/timing/grading/benchmark/feedback） | 未开始 | - |
-| Task 1.5 Artifact writer | 编写 artifact writer 测试 | 未开始 | - |
+| Task 1.4 Path builder | 实现 iteration id/eval dir/run dir/artifact paths builder | 完成 | Phase 1 Task 1.4 path builder / e5d83b7 |
+| Task 1.4 Path builder | 编写 path builder 测试（含重复 run 不静默覆盖） | 完成 | Phase 1 Task 1.4 path builder / e5d83b7 |
+| Task 1.5 Artifact writer | 实现 writeIterationMetadata / writeEvalMetadata | 完成 | Phase 1 Task 1.5 artifact writer / TODO_HASH |
+| Task 1.5 Artifact writer | 实现 6 个 placeholder writer（transcript/metrics/timing/grading/benchmark/feedback） | 完成 | Phase 1 Task 1.5 artifact writer / TODO_HASH |
+| Task 1.5 Artifact writer | 编写 artifact writer 测试 | 完成 | Phase 1 Task 1.5 artifact writer / TODO_HASH |
 | Task 1.6 Fixture smoke tests | 端到端 fixture smoke test（load → iteration-001 → with_skill/baseline → 全部占位 artifacts） | 未开始 | - |
 | 收尾 | 根目录 typecheck + test 全绿 | 未开始 | - |
 | 收尾 | verification-agent 对抗性检查 | 未开始 | - |
