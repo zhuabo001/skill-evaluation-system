@@ -128,6 +128,39 @@ describe("loadEvalSet", () => {
     );
   });
 
+  it("rejects symlinked input files that resolve outside the project root", async () => {
+    const outsideRoot = nodeFs.mkdtempSync(nodePath.join(nodeOs.tmpdir(), "skill-studio-outside-"));
+    fixtures.push(outsideRoot);
+    const outsideFile = nodePath.join(outsideRoot, "secret.txt");
+    nodeFs.writeFileSync(outsideFile, "outside project", "utf8");
+
+    const fixture = createEvalFixture({
+      evalsJson: JSON.stringify({
+        schema_version: 1,
+        skill_id: "sample-file-transformer",
+        evals: [
+          {
+            id: "symlink-file",
+            title: "Symlink file",
+            enabled: true,
+            prompt: "p",
+            expected_output: "o",
+            files: ["evals/files/link.txt"],
+            assertions: ["a"],
+            tags: [],
+          },
+        ],
+      }),
+      files: [],
+    });
+    fixtures.push(fixture.root);
+    nodeFs.symlinkSync(outsideFile, nodePath.join(fixture.evalsDir, "files", "link.txt"));
+
+    await expect(loadEvalSet(fixture.root, "sample-file-transformer")).rejects.toThrow(
+      /escapes project root/,
+    );
+  });
+
   it("rejects duplicate eval ids", async () => {
     const fixture = createEvalFixture({
       evalsJson: JSON.stringify({

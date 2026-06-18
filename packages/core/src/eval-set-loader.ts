@@ -10,9 +10,10 @@ import {
 import type { EvalSet } from "@skill-studio/schemas";
 
 import { ProjectLoaderError } from "./errors.js";
-import { normalizeRelativePath } from "./paths.js";
+import { isPathInside, normalizeRelativePath } from "./paths.js";
 
 const readFile = promisify(nodeFs.readFile);
+const realpath = promisify(nodeFs.realpath);
 const stat = promisify(nodeFs.stat);
 
 export interface LoadEvalSetOptions {
@@ -81,9 +82,16 @@ async function ensureInputFileSafe(projectPath: string, relativeFile: string): P
     );
   }
   try {
+    const projectRealPath = await realpath(projectPath);
     const info = await stat(absolutePath);
     if (!info.isFile()) {
       throw new ProjectLoaderError(`Eval input is not a file: ${relativeFile}`);
+    }
+    const inputRealPath = await realpath(absolutePath);
+    if (!isPathInside(inputRealPath, projectRealPath)) {
+      throw new ProjectLoaderError(
+        `Eval input file escapes project root after resolving symlinks: ${relativeFile}`,
+      );
     }
   } catch (error) {
     if (

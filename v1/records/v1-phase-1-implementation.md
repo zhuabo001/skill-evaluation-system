@@ -4,7 +4,7 @@
 > 关联 progress: `/v1/progress/v1-phase-1-plan-progress.md`
 > 完成日期: 2026-06-18
 > 起始 commit: `391636b`（main）
-> 收尾 commit: `8978987`（dev/phase_1）
+> 收尾 commit: `d6767aa`（dev/phase_1）
 
 ## 1. 目标摘要
 
@@ -29,13 +29,13 @@ Phase 1 固定了 Skill Studio 的核心数据模型与 artifact contract，让 
 | 文件 | 内容 |
 | --- | --- |
 | `src/errors.ts` | `ProjectLoaderError` 错误类型，链式 cause |
-| `src/paths.ts` | 路径解析 / 安全检查（`normalizeRelativePath` 拒绝绝对路径与 `..`） |
+| `src/paths.ts` + `src/eval-set-loader.ts` | 路径解析 / 安全检查（`normalizeRelativePath` 拒绝绝对路径与 `..`；eval 输入文件额外通过 `realpath` 确认 symlink 解析后仍在 project root 内） |
 | `src/project-loader.ts` | `loadSkillProject` + `parseSkillYaml` + `readInstructions`，校验 skill.yaml/instructions/evals.json 存在 |
 | `src/eval-set-loader.ts` | `loadEvalSet`，校验 skill_id、files 存在、path traversal、duplicate id、可选过滤 disabled |
 | `src/run-paths.ts` | `allocateIteration` / `allocateRun` / `buildRunAt` / `buildRunArtifactPaths` / `ensureRunDirReady`，遵守 `iteration-001`/`eval-<id>`/`with_skill\|baseline`/`run-001` 约定，不静默覆盖 |
 | `src/artifact-writer.ts` | `writeIterationMetadata` / `writeEvalMetadata` + 6 个 placeholder writer（transcript/metrics/timing/grading/benchmark/feedback），全部走 Zod 校验后写盘 |
 | `src/project-loader.test.ts` | 8 个 project loader 测试 |
-| `src/eval-set-loader.test.ts` | 8 个 eval set loader 测试（含 path traversal、duplicate id） |
+| `src/eval-set-loader.test.ts` | 9 个 eval set loader 测试（含 path traversal、symlink escape、duplicate id） |
 | `src/run-paths.test.ts` | 8 个 path builder 测试（含不静默覆盖） |
 | `src/artifact-writer.test.ts` | 8 个 artifact writer 测试 |
 | `src/fixture-smoke.test.ts` | 2 个端到端 fixture smoke 测试 |
@@ -49,12 +49,12 @@ Phase 1 固定了 Skill Studio 的核心数据模型与 artifact contract，让 
 ## 3. 测试与质量
 
 - 根 `pnpm typecheck`：5 个包全部通过（document-tools、schemas、runtime、model-adapters、core）。
-- 根 `pnpm test`：`packages/core` 5 个测试文件 34 个用例全部通过；其他包没有 Phase 1 范围内的测试。
+- 根 `pnpm test`：`packages/core` 5 个测试文件 35 个用例全部通过；其他包没有 Phase 1 范围内的测试。
 - 涵盖的对抗性场景：
   - skill.yaml 缺字段 / 非法 status / 非 kebab id。
   - instructions.md 缺失 / 空白。
   - evals.json 解析错误 / skill_id 不匹配 / 重复 id。
-  - 文件路径越界（`../secret.txt`）/ 缺失文件。
+  - 文件路径越界（`../secret.txt`）/ symlink 解析后逃逸 project root / 缺失文件。
   - iteration / run 编号递增。
   - 重复 run 目录默认拒绝、显式 `overwrite=true` 才放行。
   - 端到端 fixture 全路径生成（含 `with_skill` + `baseline` + `outputs/` + `benchmark.md`）。
