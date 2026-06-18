@@ -2,6 +2,8 @@ export { PACKAGE_NAME } from "./project-loader.js";
 export { ProjectLoaderError } from "./errors.js";
 export type { LoadSkillProjectOptions } from "./project-loader.js";
 export { loadSkillProject, parseSkillYaml, readInstructions } from "./project-loader.js";
+export type { LoadEvalSetOptions, LoadEvalSetResult } from "./eval-set-loader.js";
+export { loadEvalSet } from "./eval-set-loader.js";
 export {
   getProjectFilePaths,
   isPathInside,
