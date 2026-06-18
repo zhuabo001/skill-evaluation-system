@@ -10,6 +10,11 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@skill-studio/schemas": "workspace:*"
+    "@skill-studio/schemas": "workspace:*",
+    "yaml": "^2.9.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3"
   }
 }
