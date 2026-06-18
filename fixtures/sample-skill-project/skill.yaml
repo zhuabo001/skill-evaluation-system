@@ -1,0 +1,5 @@
+schema_version: 1
+id: sample-file-transformer
+name: Sample File Transformer
+description: Use this skill when the user needs to transform a text input file into a structured JSON summary.
+status: draft

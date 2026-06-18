@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "skill_id": "sample-file-transformer",
+  "evals": [
+    {
+      "id": "text-to-json-summary",
+      "title": "Transform text notes into JSON summary",
+      "enabled": true,
+      "prompt": "Please read the attached notes file and turn it into a JSON summary.",
+      "expected_output": "A summary.json file with title, items, and item_count.",
+      "files": ["evals/files/notes.txt"],
+      "assertions": [
+        "The output includes a valid JSON file.",
+        "The JSON contains title, items, and item_count.",
+        "item_count matches the number of items."
+      ],
+      "tags": ["file-transform", "json"]
+    }
+  ]
+}
