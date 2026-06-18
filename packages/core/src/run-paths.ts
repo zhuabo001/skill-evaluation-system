@@ -87,6 +87,14 @@ export function buildRunAt(
   return finalizeRunAllocation(configurationDir, mode, runId);
 }
 
+export function buildRunArtifactPaths(
+  evalDir: string,
+  mode: RunConfigurationMode,
+  runId: string,
+): RunArtifactPaths {
+  return buildRunAt(evalDir, mode, runId).paths;
+}
+
 function finalizeRunAllocation(
   configurationDir: string,
   mode: RunConfigurationMode,

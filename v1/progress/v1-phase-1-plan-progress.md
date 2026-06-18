@@ -20,7 +20,7 @@
 | Task 1.5 Artifact writer | 实现 writeIterationMetadata / writeEvalMetadata | 完成 | Phase 1 Task 1.5 artifact writer / 8a4e460 |
 | Task 1.5 Artifact writer | 实现 6 个 placeholder writer（transcript/metrics/timing/grading/benchmark/feedback） | 完成 | Phase 1 Task 1.5 artifact writer / 8a4e460 |
 | Task 1.5 Artifact writer | 编写 artifact writer 测试 | 完成 | Phase 1 Task 1.5 artifact writer / 8a4e460 |
-| Task 1.6 Fixture smoke tests | 端到端 fixture smoke test（load → iteration-001 → with_skill/baseline → 全部占位 artifacts） | 完成 | Phase 1 Task 1.6 fixture smoke + root green / TODO_HASH |
-| 收尾 | 根目录 typecheck + test 全绿 | 完成 | Phase 1 Task 1.6 fixture smoke + root green / TODO_HASH |
+| Task 1.6 Fixture smoke tests | 端到端 fixture smoke test（load → iteration-001 → with_skill/baseline → 全部占位 artifacts） | 完成 | Phase 1 Task 1.6 fixture smoke + root green / e32fa07 |
+| 收尾 | 根目录 typecheck + test 全绿 | 完成 | Phase 1 Task 1.6 fixture smoke + root green / e32fa07 |
 | 收尾 | verification-agent 对抗性检查 | 未开始 | - |
 | 收尾 | 在 v1/records 写摘要 | 未开始 | - |

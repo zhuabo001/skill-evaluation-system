@@ -14,6 +14,7 @@ export {
   buildConfigurationDir,
   buildEvalDir,
   buildIterationPlan,
+  buildRunArtifactPaths,
   buildRunAt,
   ensureRunDirReady,
   formatIterationId,
