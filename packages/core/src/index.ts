@@ -5,6 +5,26 @@ export { loadSkillProject, parseSkillYaml, readInstructions } from "./project-lo
 export type { LoadEvalSetOptions, LoadEvalSetResult } from "./eval-set-loader.js";
 export { loadEvalSet } from "./eval-set-loader.js";
 export {
+  CONFIGURATION_DIRS,
+  EVAL_DIR_PREFIX,
+  ITERATION_DIR_PREFIX,
+  RUN_DIR_PREFIX,
+  allocateIteration,
+  allocateRun,
+  buildConfigurationDir,
+  buildEvalDir,
+  buildIterationPlan,
+  buildRunAt,
+  ensureRunDirReady,
+  formatIterationId,
+  formatRunId,
+} from "./run-paths.js";
+export type {
+  AllocateRunArgs,
+  IterationPlan,
+  RunAllocation,
+} from "./run-paths.js";
+export {
   getProjectFilePaths,
   isPathInside,
   joinRelative,
