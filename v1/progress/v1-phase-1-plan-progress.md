@@ -6,13 +6,13 @@
 
 | 大任务 | 小任务 | 状态 | Commit 信息 / 哈希 |
 | --- | --- | --- | --- |
-| Task 1.1 Schema validators | 添加 zod/yaml 依赖并配置包入口 | 完成 | Phase 1 Task 1.1 schemas + validators |
-| Task 1.1 Schema validators | 定义 shared TypeScript 类型（含 Phase 1 新增类型） | 完成 | Phase 1 Task 1.1 schemas + validators |
-| Task 1.1 Schema validators | 实现 Zod validators（skill/evals/iteration/run artifacts） | 完成 | Phase 1 Task 1.1 schemas + validators |
-| Task 1.1 Schema validators | 实现 validation error formatter | 完成 | Phase 1 Task 1.1 schemas + validators |
-| Task 1.1 Schema validators | 编写 schema validator 单元测试 | 完成 | Phase 1 Task 1.1 schemas + validators |
-| Task 1.2 Project loader | 实现 loadSkillProject + instructions 校验 | 未开始 | - |
-| Task 1.2 Project loader | 编写 project loader 测试（含失败用例） | 未开始 | - |
+| Task 1.1 Schema validators | 添加 zod/yaml 依赖并配置包入口 | 完成 | Phase 1 Task 1.1 schemas + validators / 4bba411 |
+| Task 1.1 Schema validators | 定义 shared TypeScript 类型（含 Phase 1 新增类型） | 完成 | Phase 1 Task 1.1 schemas + validators / 4bba411 |
+| Task 1.1 Schema validators | 实现 Zod validators（skill/evals/iteration/run artifacts） | 完成 | Phase 1 Task 1.1 schemas + validators / 4bba411 |
+| Task 1.1 Schema validators | 实现 validation error formatter | 完成 | Phase 1 Task 1.1 schemas + validators / 4bba411 |
+| Task 1.1 Schema validators | 编写 schema validator 单元测试 | 完成 | Phase 1 Task 1.1 schemas + validators / 4bba411 |
+| Task 1.2 Project loader | 实现 loadSkillProject + instructions 校验 | 完成 | Phase 1 Task 1.2 project loader / 4b9d3bd (pending) |
+| Task 1.2 Project loader | 编写 project loader 测试（含失败用例） | 完成 | Phase 1 Task 1.2 project loader / 4b9d3bd (pending) |
 | Task 1.3 Eval set loader | 实现 loadEvalSet（skill_id 校验、path traversal 拒绝、duplicate id 检查） | 未开始 | - |
 | Task 1.3 Eval set loader | 编写 eval set loader 测试 | 未开始 | - |
 | Task 1.4 Path builder | 实现 iteration id/eval dir/run dir/artifact paths builder | 未开始 | - |
